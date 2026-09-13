@@ -49,7 +49,12 @@ import requests  # noqa: E402
 import torch  # noqa: E402
 from transformers import AutoTokenizer, AutoModel  # noqa: E402
 
-DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
+# Kaggle's default GPU (Tesla P100, sm_60) is incompatible with the
+# preinstalled PyTorch build (compiled for sm_70+) -- a known issue hit
+# elsewhere in this portfolio. This model is small (35M params) and the
+# dataset modest, so CPU is genuinely fast enough; force it rather than
+# fight CUDA compatibility.
+DEVICE = "cpu"
 print(f"device: {DEVICE}", flush=True)
 
 RAW = WORK / "raw"
