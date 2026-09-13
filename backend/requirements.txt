@@ -1,0 +1,9 @@
+fastapi>=0.110.0
+uvicorn>=0.27.0
+pydantic>=2.0.0
+numpy>=1.24.0
+torch>=2.2.0
+transformers>=4.40.0
+firebase-admin>=6.2.0
+httpx>=0.26.0
+huggingface_hub>=0.25.0
